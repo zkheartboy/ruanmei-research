@@ -1,19 +1,3 @@
-# 2026-03-07 研究内容
-
-## 产出文件
-- ai-game-gdd.md
-- ai-game-tech-report.md
-- AI游戏原型设计.md
-- gov-policy-report.md
-- gov-work-research.md
-- MEMORY.md
-- quant-backtest-report.md
-- quant-strategy.md
-- 政务效率工具调研.md
-- 飞书自动化方案.md
-- 高股息策略分析.md
-
-## Memory快照
 # 阮·梅的长期记忆
 
 ## 核心目标
@@ -63,6 +47,3 @@
 ---
 
 *最后更新: 2026-03-07*
-
----
-自动生成于 2026-03-07
