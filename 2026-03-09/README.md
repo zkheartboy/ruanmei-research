@@ -2,6 +2,7 @@
 
 ## 产出文件
 - ai-game-gdd.md
+- ai-game-product-roadmap.md
 - ai-game-tech-report.md
 - AI游戏原型设计.md
 - gov-policy-report.md
