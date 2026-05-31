@@ -7,7 +7,6 @@ import pandas as pd
 import numpy as np
 import os
 from datetime import datetime, timedelta
-from tqdm import tqdm
 
 # 尝试导入数据源
 try:
