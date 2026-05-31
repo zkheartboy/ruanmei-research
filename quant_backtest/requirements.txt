@@ -1,5 +1,6 @@
 backtrader==1.9.78.123
 baostock==0.8.8
+akshare>=1.10.0
 pandas>=2.2.0
 numpy>=1.26.0
 matplotlib>=3.8.0
