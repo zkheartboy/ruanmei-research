@@ -73,12 +73,18 @@ class DualMAStrategy(bt.Strategy):
             # 无持仓，检查买入信号
             if self.crossover > 0:  # 金叉
                 self.log(f'买入信号, 价格: {self.data.close[0]:.2f}')
-                self.order = self.buy()
+                # 满仓买入
+                current_price = self.data.close[0]
+                available_cash = self.broker.getcash()
+                size = int(available_cash / current_price * 0.99)  # 留1%给手续费
+                if size > 0:
+                    self.order = self.buy(size=size)
         else:
             # 有持仓，检查卖出信号
             if self.crossover < 0:  # 死叉
                 self.log(f'卖出信号, 价格: {self.data.close[0]:.2f}')
-                self.order = self.sell()
+                # 全部卖出
+                self.order = self.sell(size=self.position.size)
     
     def stop(self):
         """策略结束"""
