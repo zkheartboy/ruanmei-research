@@ -1,6 +1,7 @@
 
 """
-终极策略回测 - 真正解决与买入持有差距太大的问题！
+终极策略回测 - 沪深300真实数据版
+只使用真实数据，失败直接报错
 """
 
 import sys
@@ -17,7 +18,6 @@ from strategies.ultimate_strategies import (
     TrendFollowMinimal
 )
 import backtrader as bt
-
 
 def run_backtest(data, strategy_class, params=None):
     """运行回测并返回结果"""
@@ -40,15 +40,16 @@ def run_backtest(data, strategy_class, params=None):
     final_value = cerebro.broker.getvalue()
     return final_value
 
-
 def main():
     print("=" * 80)
-    print("  终极策略回测 - 真正解决与买入持有差距太大问题")
+    print("  终极策略回测 - 沪深300 (sh.000300)")
+    print("  [真实数据专用版]")
     print("=" * 80)
     
-    print("\n[1] 获取市场数据...")
+    print("\n[1] 获取沪深300真实数据...")
     fetcher = StockDataFetcher()
-    data = fetcher.get_index_data('sh.000001', '2019-01-01', '2025-06-01')
+    # 使用真实历史日期范围
+    data = fetcher.get_index_data('sh.000300', '2019-01-01', '2025-05-31')
     fetcher.logout()
     
     print("\n[2] 计算买入持有收益...")
@@ -122,15 +123,9 @@ def main():
     else:
         print("  Did not outperform buy and hold.")
     
-    print(f"\n  Key learnings:")
-    print("    1. In strong bull markets, buy and hold is extremely hard to beat")
-    print("    2. Frequent trading often misses the big uptrend")
-    print("    3. The best strategy in a bull market might just be: buy and hold")
-    
-    output_file = '/workspace/quant_backtest/终极策略对比.csv'
+    output_file = '/workspace/quant_backtest/沪深300_策略对比.csv'
     df.to_csv(output_file, index=False, encoding='utf-8-sig')
     print(f"\n  Results saved to: {output_file}")
-
 
 if __name__ == '__main__':
     main()
